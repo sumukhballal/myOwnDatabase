@@ -125,3 +125,39 @@ RC readLastBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
     return readBlock(fHandle->totalNumPages - 1, fHandle, memPage);
 }
+
+
+/* WRITING */
+
+RC writeBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
+{
+    fPtr=fopen(fHandle->fileName,"r+");
+    fseek(fPtr,0,SEEK_SET);
+    fread(&fHeader,sizeof(SM_FileHandle),1,fPtr);
+    fHandle->curPagePos=fHeader.curPagePos;
+    fHandle->totalNumPages=fHeader.totalNumPages;
+    fHandle->mgmtInfo=fHeader.mgmtInfo;
+
+    fseek(fPtr, sizeof(struct SM_FileHandle) + (pageNum * PAGE_SIZE), SEEK_SET);
+    fwrite(memPage,sizeof(char),PAGE_SIZE,fPtr);
+    fHandle->curPagePos=pageNum;
+    fHandle->totalNumPages = (ftell(fPtr) - sizeof(struct SM_FileHandle)) / PAGE_SIZE;
+
+    // Write updated file handle to file
+    fseek(fPtr,0, SEEK_SET);
+    fwrite(fHandle,sizeof(SM_FileHandle),1,fPtr);
+    return RC_OK;
+
+}
+RC writeCurrentBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
+{
+    return RC_OK;
+}
+RC appendEmptyBlock (SM_FileHandle *fHandle) 
+{
+    return RC_OK;
+}
+RC ensureCapacity (int numberOfPages, SM_FileHandle *fHandle)
+{
+    return RC_OK;
+}

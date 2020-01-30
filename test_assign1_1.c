@@ -84,7 +84,7 @@ testSinglePageContent(void)
   // change ph to be a string and write that one to disk
   for (i=0; i < PAGE_SIZE; i++)
     ph[i] = (i % 10) + '0';
-  //TEST_CHECK(writeBlock (0, &fh, ph));
+  TEST_CHECK(writeBlock (0, &fh, ph));
   printf("writing first block\n");
 
   // read back the page containing the string and check that it is correct
