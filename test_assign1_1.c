@@ -15,7 +15,7 @@ char *testName;
 
 /* prototypes for test functions */
 static void testCreateOpenClose(void);
-//static void testSinglePageContent(void);
+static void testSinglePageContent(void);
 
 /* main function running all tests */
 int
@@ -26,7 +26,7 @@ main (void)
   initStorageManager();
 
   testCreateOpenClose();
- // testSinglePageContent();
+  testSinglePageContent();
 
   return 0;
 }
@@ -57,7 +57,7 @@ testCreateOpenClose(void)
   TEST_DONE();
 }
 
-/* Try to create, open, and close a page file */ /*
+/* Try to create, open, and close a page file */ 
 void
 testSinglePageContent(void)
 {
@@ -84,7 +84,7 @@ testSinglePageContent(void)
   // change ph to be a string and write that one to disk
   for (i=0; i < PAGE_SIZE; i++)
     ph[i] = (i % 10) + '0';
-  TEST_CHECK(writeBlock (0, &fh, ph));
+  //TEST_CHECK(writeBlock (0, &fh, ph));
   printf("writing first block\n");
 
   // read back the page containing the string and check that it is correct
@@ -97,4 +97,4 @@ testSinglePageContent(void)
   TEST_CHECK(destroyPageFile (TESTPF));  
   
   TEST_DONE();
-} */
+} 
