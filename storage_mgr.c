@@ -151,13 +151,33 @@ RC writeBlock (int pageNum, SM_FileHandle *fHandle, SM_PageHandle memPage)
 }
 RC writeCurrentBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
 {
+    //Get current page pos
+    int pagepos = getBlockPos(fHandle);
+    //RC_OK will only be returned if writing is successful
     return RC_OK;
 }
+
 RC appendEmptyBlock (SM_FileHandle *fHandle) 
 {
+
+    //empty page creation
     return RC_OK;
 }
 RC ensureCapacity (int numberOfPages, SM_FileHandle *fHandle)
 {
-    return RC_OK;
+    getFileHeader(fHandle);
+    //check if numberOfPages > TotalNumPages, if true then we need to append page
+    if (numberOfPages > fHandle->totalNumPages)
+    {
+        while (numberOfPages > fHandle->totalNumPages)
+        {
+            appendEmptyBlock(fHandle);
+        }
+        return RC_OK;
+    }
+    else
+    {
+        //no. of pages < total pages so no pages need to be appended
+        return RC_OK;
+    }
 }
