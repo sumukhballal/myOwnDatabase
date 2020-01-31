@@ -2,13 +2,13 @@
 Assignment 1:
 Storage Manager: Implement a storage manager that allows read/writing 
 of blocks to/from a file on disk.
-=======================================================================
+===================================================================
 Contents :
 - MakeFile : The make file usesd to create a executable test_assign1.exe
 - test_assign1.c : Where all the test cases are written
 - All required header files and their respective executable code in
 respective .c files.
-========================================================================
+===================================================================
 Steps to run the code:
 - 1. open the command prompt and directs its directory where the MakeFile
 is located.
@@ -16,9 +16,9 @@ is located.
 along with an executable test_assign1.exe file.
 - 3. Run the test_assign1.exe file by either double tap it or by command
 line execution.
-========================================================================
+===================================================================
 Nested content and flow of execution:
- 
+------------------------------------------------------------------- 
  -test_assign1.c
      -All header files are included
       storage_mgr.h;dberror.h;test_helper.h 
@@ -46,3 +46,4 @@ Nested content and flow of execution:
         -initStorageManager()
         -testCreateOpenClose()
         -testSinglePageContent()
+-------------------------------------------------------------------
