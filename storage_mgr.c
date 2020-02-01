@@ -154,23 +154,33 @@ RC writeCurrentBlock (SM_FileHandle *fHandle, SM_PageHandle memPage)
     //Get current page pos
     int pagepos = getBlockPos(fHandle);
     //RC_OK will only be returned if writing is successful
-    return RC_OK;
+    return writeBlock(pagepos,fHandle,memPage);
 }
 
 RC appendEmptyBlock (SM_FileHandle *fHandle) 
 {
+    SM_PageHandle emptyPage=(SM_PageHandle)calloc(PAGE_SIZE,sizeof(char)); // creates an empty char pointer
+    fPtr=fopen(fHandle->fileName,"r+");
+    if((fseek(fPtr,sizeof(struct SM_FileHandle) + (fHandle->totalNumPages * PAGE_SIZE), SEEK_SET)==0))
+    {
+        fwrite(emptyPage,sizeof(char),PAGE_SIZE,fPtr);
+        int totPages=(ftell(fPtr)-sizeof(SM_FileHandle))/PAGE_SIZE;
 
+        fHandle->curPagePos=totPages-1;
+        fHandle->totalNumPages=totPages;
+        return RC_OK;
+    }
     //empty page creation
-    return RC_OK;
+    return RC_WRITE_FAILED;
 }
 RC ensureCapacity (int numberOfPages, SM_FileHandle *fHandle)
 {
-    getFileHeader(fHandle);
     //check if numberOfPages > TotalNumPages, if true then we need to append page
     if (numberOfPages > fHandle->totalNumPages)
     {
         while (numberOfPages > fHandle->totalNumPages)
         {
+            //Append new pages
             appendEmptyBlock(fHandle);
         }
         return RC_OK;
