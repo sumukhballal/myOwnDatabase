@@ -1,5 +1,3 @@
-# CS525 : Advanced Database Organization
-## Assignment 1:
 
 ### Storage Manager: Implement a storage manager that allows read/writing of blocks to/from a file on disk.
 ===================================================================
