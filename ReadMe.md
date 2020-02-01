@@ -32,7 +32,7 @@ Nested content and flow of execution:
              -destroyPageFile()     |
              
              -readBlock()           |
-             -getBlokPos()          |
+             -getBlockPos()          |
              -readFirstBlock()      |
              -readPreviousBlock()   | // reading blocks from disc
              -readCurrentBlock()    |
