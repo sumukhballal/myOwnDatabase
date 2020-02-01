@@ -1,21 +1,18 @@
-                CS525 : Advanced Database Organization
-Assignment 1:
-Storage Manager: Implement a storage manager that allows read/writing 
-of blocks to/from a file on disk.
+                #CS525 : Advanced Database Organization
+##Assignment 1:
+
+###Storage Manager: Implement a storage manager that allows read/writing of blocks to/from a file on disk.
 ===================================================================
-Contents :
-- MakeFile : The make file usesd to create a executable test_assign1.exe
-- test_assign1.c : Where all the test cases are written
-- All required header files and their respective executable code in
+###Contents :
+* MakeFile : The make file usesd to create a executable test_assign1.exe
+* test_assign1.c : Where all the test cases are written
+* All required header files and their respective executable code in
 respective .c files.
 ===================================================================
-Steps to run the code:
-- 1. open the command prompt and directs its directory where the MakeFile
-is located.
-- 2. Run the make command on the MakeFil which will create the .o file
-along with an executable test_assign1.exe file.
-- 3. Run the test_assign1.exe file by either double tap it or by command
-line execution.
+###Steps to run the code:
+* open the command prompt and directs its directory where the MakeFile is located.
+* Run the make command on the MakeFil which will create the .o file along with an executable test_assign1.exe file.
+* Run the test_assign1.exe file by either double tap it or by command line execution.
 ===================================================================
 Nested content and flow of execution:
 ------------------------------------------------------------------- 
