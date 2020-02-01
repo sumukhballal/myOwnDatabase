@@ -6,12 +6,15 @@
 ### Contents :
 * MakeFile : The make file usesd to create a executable test_assign1.exe
 * test_assign1.c : Where all the test cases are written
+
 * All required header files and their respective executable code in respective .c files.
+
 ===================================================================
 ### Steps to run the code:
 * open the command prompt and directs its directory where the MakeFile is located.
 * Run the make command on the MakeFil which will create the .o file along with an executable test_assign1.exe file.
 * Run the test_assign1.exe file by either double tap it or by command line execution.
+
 ===================================================================
 ### Nested content and flow of execution:
 ------------------------------------------------------------------- 
@@ -28,7 +31,7 @@
              - destroyPageFile()     |
              
              - readBlock()           |
-             - getBlockPos()          |
+             - getBlockPos()         |
              - readFirstBlock()      |
              - readPreviousBlock()   | // reading blocks from disc
              - readCurrentBlock()    |
